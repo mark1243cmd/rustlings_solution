@@ -13,10 +13,18 @@ struct Fahrenheit(f64);
 impl From<Celsius> for Fahrenheit {
     // TODO: Convert Celsius to Fahrenheit. Don't worry about floating-point
     // precision. The formula is: F = C * 1.8 + 32
+    fn from(value: Celsius) -> Fahrenheit {
+        let c = value.0;
+        Fahrenheit(c * 1.8 + 32.0)
+    }
 }
 
 impl From<Fahrenheit> for Celsius {
     // TODO: Convert Fahrenheit to Celsius.
+    fn from(value: Fahrenheit) -> Celsius {
+        let f = value.0;
+        Celsius((f - 32.0) / 1.8)
+    }
 }
 
 fn main() {
